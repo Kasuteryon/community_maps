@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             Image.asset("assets/logo/banner.png"),
@@ -68,6 +69,10 @@ class HomePage extends StatelessWidget {
                         ))),
               ],
             ),
+            Container(
+                margin: const EdgeInsets.only(bottom: 50),
+                height: 160,
+                child: Image.asset("assets/logo/footer.png")),
           ],
         ),
       ),
