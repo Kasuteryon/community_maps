@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:nasa_challenge/domain/models/arobjects.dart';
+import 'package:nasa_challenge/presentation/pages/ar_views/ar_screen_view.dart';
 import 'package:nasa_challenge/presentation/pages/map_views/custom_marker.dart';
 import 'package:nasa_challenge/presentation/pages/map_views/info_sheet.dart';
 import 'package:nasa_challenge/utils/coordinates_initialization.dart';
@@ -156,7 +159,9 @@ class _MapViewPageState extends State<MapViewPage> {
               fillColor: InitializedCoordinates.init[i].fillColor,
               onTap: () {
                 showModalBottomSheet(
-                    context: context, builder: (_) => InfoSheet());
+                    context: context,
+                    builder: (_) =>
+                        InfoSheet(coordinates: InitializedCoordinates.init[i]));
               },
             ),
         },
@@ -168,7 +173,9 @@ class _MapViewPageState extends State<MapViewPage> {
                 consumeTapEvents: true,
                 onTap: () {
                   showModalBottomSheet(
-                      context: context, builder: (_) => InfoSheet());
+                      context: context,
+                      builder: (_) => InfoSheet(
+                          coordinates: InitializedCoordinates.init[i]));
                 },
                 position: LatLng(
                     InitializedCoordinates.init[i].initialPosition.lat,
@@ -178,11 +185,51 @@ class _MapViewPageState extends State<MapViewPage> {
         myLocationButtonEnabled: false,
         mapType: MapType.terrain,
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        heroTag: "next",
-        onPressed: nextPosition,
-        label: const Text('Next Location'),
-        icon: const Icon(Icons.directions_boat),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ARObjectsScreen(
+                            object: ARObjects.chicken,
+                            isLocal: true,
+                          )));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(left: 40),
+              height: 120,
+              width: 180,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/logo/ar_map.jpg"),
+                      fit: BoxFit.cover),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color.fromARGB(69, 0, 0, 0),
+                        offset: Offset(0.1, 0.1),
+                        blurRadius: 10,
+                        spreadRadius: 0.5)
+                  ]),
+              child: const Text("View in AR",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)),
+            ),
+          ),
+          FloatingActionButton.extended(
+            heroTag: "next",
+            onPressed: nextPosition,
+            label: const Text('Next Location'),
+            icon: const Icon(Icons.directions_boat),
+          ),
+        ],
       ),
     );
   }

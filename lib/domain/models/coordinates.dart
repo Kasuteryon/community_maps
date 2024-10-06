@@ -6,17 +6,31 @@ class Coordinates {
   final String locationName;
   final Color strokeColor;
   final Color fillColor;
+  final String summary;
+  final String mainIssue;
   final Position initialPosition;
+  final List<String> urls;
+  final List<GreenhouseDetail> greenhouseDetails;
   final List<Position> positions;
 
-  Coordinates({
-    required this.strokeColor,
-    required this.fillColor,
-    required this.id,
-    required this.locationName,
-    required this.initialPosition,
-    required this.positions,
-  });
+  Coordinates(
+      {required this.strokeColor,
+      required this.fillColor,
+      required this.id,
+      required this.locationName,
+      required this.initialPosition,
+      required this.positions,
+      required this.summary,
+      required this.mainIssue,
+      required this.urls,
+      required this.greenhouseDetails});
+}
+
+class GreenhouseDetail {
+  final String description;
+  final Color color;
+
+  GreenhouseDetail({required this.description, required this.color});
 }
 
 class Position {

@@ -8,6 +8,20 @@ class InitializedCoordinates {
         locationName: "Pachuca de Soto",
         fillColor: const Color.fromARGB(98, 76, 175, 79),
         strokeColor: Colors.green,
+        greenhouseDetails: [
+          GreenhouseDetail(
+              description: "2000 ppm of Methane",
+              color: const Color.fromRGBO(105, 184, 108, 1))
+        ],
+        summary:
+            "Pachuca, the capital of the state of Hidalgo in central Mexico, is located about 90 kilometers northeast of Mexico City. It sits at an elevation of approximately 2,400 meters (7,874 feet) above sea level. The city is historically known for its mining industry, particularly silver extraction, which played a major role in its economic development.",
+        mainIssue:
+            "Pachuca is of interest for mapping as the capital of the state of Hidalgo, where important universities, schools, and hospitals are located. Due to the effects of the mining industry, greenhouse gases are emitted.",
+        urls: [
+          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
+          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+        ],
         initialPosition: Position(lat: 20.084683, lng: -98.749287),
         positions: [
           Position(lat: 19.973451, lng: -98.748256),
@@ -77,19 +91,19 @@ class InitializedCoordinates {
           Position(lat: 19.980802, lng: -98.776354),
           Position(lat: 19.987903, lng: -98.771106)
         ]),
-    Coordinates(
-        id: "Bordo",
-        locationName: "Bordo Poniente",
-        fillColor: const Color.fromARGB(98, 76, 175, 79),
-        strokeColor: Colors.green,
-        initialPosition: Position(lat: 19.440076, lng: -99.025026),
-        positions: [Position(lat: 1, lng: 0)]),
-    Coordinates(
-        id: "Tula",
-        locationName: "Tula",
-        fillColor: const Color.fromARGB(98, 76, 175, 79),
-        strokeColor: Colors.green,
-        initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        positions: [Position(lat: 1, lng: 0)])
+    // Coordinates(
+    //     id: "Bordo",
+    //     locationName: "Bordo Poniente",
+    //     fillColor: const Color.fromARGB(98, 76, 175, 79),
+    //     strokeColor: Colors.green,
+    //     initialPosition: Position(lat: 19.440076, lng: -99.025026),
+    //     positions: [Position(lat: 1, lng: 0)]),
+    // Coordinates(
+    //     id: "Tula",
+    //     locationName: "Tula",
+    //     fillColor: const Color.fromARGB(98, 76, 175, 79),
+    //     strokeColor: Colors.green,
+    //     initialPosition: Position(lat: 20.415986, lng: -99.229184),
+    //     positions: [Position(lat: 1, lng: 0)])
   ];
 }
