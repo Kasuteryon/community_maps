@@ -41,7 +41,7 @@ class AboutPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(20),
               child: const Text(
-                "So having this opportunity, we selected the places where the presence is big (including Tula and its Municipalties, the second most polluted city in the world between 2002 and 2005) and developed a tool that can serve that purpose: inform and educate. An impactful source of information with entertaining technologies such as Augmented Reality and Maps (based on GIS) in a mobile app designed for everyone.",
+                "So having this opportunity, we selected the places where the presence is big (including Tula and its Municipalties, the second most polluted city in the world between 2002 and 2005 declared by UNESCO) and developed a tool that can serve that purpose: inform and educate. An impactful source of information with entertaining technologies such as Augmented Reality and Maps (based on GIS) in a mobile app designed for everyone.",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.justify,
               ),
