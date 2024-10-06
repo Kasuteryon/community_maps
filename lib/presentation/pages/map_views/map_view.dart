@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nasa_challenge/domain/models/arobjects.dart';
 import 'package:nasa_challenge/presentation/pages/ar_views/ar_screen_view.dart';
@@ -200,39 +201,105 @@ class _MapViewPageState extends State<MapViewPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ARObjectsScreen(
-                            object: ARObjects.chicken,
-                            isLocal: true,
-                          )));
-            },
-            child: Container(
-              alignment: Alignment.center,
-              margin: const EdgeInsets.only(left: 40),
-              height: 120,
-              width: 180,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                      image: AssetImage("assets/logo/ar_map.jpg"),
-                      fit: BoxFit.cover),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Color.fromARGB(69, 0, 0, 0),
-                        offset: Offset(0.1, 0.1),
-                        blurRadius: 10,
-                        spreadRadius: 0.5)
-                  ]),
-              child: const Text("View in AR",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold)),
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (_) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(right: 2),
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.only(left: 10),
+                          decoration: const BoxDecoration(
+                              color: Color(0xffDAE1FD), shape: BoxShape.circle),
+                          child: IconButton(
+                              color: Colors.white,
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(
+                                Icons.arrow_back_ios_new,
+                                color: Colors.black,
+                              )),
+                        ),
+                        Stack(
+                          alignment: const Alignment(0.9, 1.5),
+                          children: [
+                            Image.asset("assets/map/tula_temp.png"),
+                            SizedBox(
+                                height: 120,
+                                child:
+                                    Image.asset("assets/map/tula_scale.png")),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(left: 40, bottom: 10),
+                  height: 60,
+                  width: 180,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: const DecorationImage(
+                          image: AssetImage("assets/map/heatmap.webp"),
+                          fit: BoxFit.cover),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(69, 0, 0, 0),
+                            offset: Offset(0.1, 0.1),
+                            blurRadius: 10,
+                            spreadRadius: 0.5)
+                      ]),
+                  child: const Text("View Heatmap",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ARObjectsScreen(
+                                object: ARObjects.chicken,
+                                isLocal: true,
+                              )));
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(left: 40),
+                  height: 90,
+                  width: 180,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: const DecorationImage(
+                          image: AssetImage("assets/logo/ar_map.jpg"),
+                          fit: BoxFit.cover),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(69, 0, 0, 0),
+                            offset: Offset(0.1, 0.1),
+                            blurRadius: 10,
+                            spreadRadius: 0.5)
+                      ]),
+                  child: const Text("View in AR",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+            ],
           ),
           FloatingActionButton.extended(
             heroTag: "next",
