@@ -6,6 +6,7 @@ class Coordinates {
   final String locationName;
   final Color strokeColor;
   final Color fillColor;
+  final Position initialPosition;
   final List<Position> positions;
 
   Coordinates({
@@ -13,34 +14,9 @@ class Coordinates {
     required this.fillColor,
     required this.id,
     required this.locationName,
+    required this.initialPosition,
     required this.positions,
   });
-
-  factory Coordinates.fromRawJson(String str) =>
-      Coordinates.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory Coordinates.fromJson(Map<String, dynamic> json) => Coordinates(
-        fillColor: json["fillColor"],
-        strokeColor: json["strokeColor"],
-        id: json["id"],
-        locationName: json["location_name"],
-        positions: json["positions"] == null
-            ? []
-            : List<Position>.from(
-                json["positions"]!.map((x) => Position.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "fillColor": fillColor,
-        "strokeColor": strokeColor,
-        "id": id,
-        "location_name": locationName,
-        "positions": positions == null
-            ? []
-            : List<dynamic>.from(positions!.map((x) => x.toJson())),
-      };
 }
 
 class Position {

@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:nasa_challenge/presentation/pages/map_views/custom_marker.dart';
+import 'package:nasa_challenge/presentation/pages/map_views/info_sheet.dart';
 import 'package:nasa_challenge/utils/coordinates_initialization.dart';
 
 class MapViewPage extends StatefulWidget {
@@ -15,7 +18,40 @@ class _MapViewPageState extends State<MapViewPage> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
+  BitmapDescriptor icon = BitmapDescriptor.defaultMarker;
+
+  Future<BitmapDescriptor> getCustomIcon() async {
+    return SizedBox(
+      height: 50,
+      width: 130,
+      child: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text(
+          'See More',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        heroTag: (Random().nextDouble() * 256).toString(),
+        backgroundColor: const Color.fromARGB(255, 255, 142, 142),
+        icon: const Icon(Icons.zoom_out_map, color: Colors.white),
+      ),
+    ).toBitmapDescriptor();
+  }
+
+  toNonAsync() async {
+    icon = await getCustomIcon();
+
+    setState(() {
+      icon = icon;
+    });
+  }
+
   int pos = 1;
+
+  @override
+  void initState() {
+    toNonAsync();
+    super.initState();
+  }
 
   String title = "Pachuca de Soto";
 
@@ -27,7 +63,7 @@ class _MapViewPageState extends State<MapViewPage> {
     // Pachuca
     const CameraPosition(
       target: LatLng(20.084683, -98.749287),
-      zoom: 11,
+      zoom: 11.5,
     ),
     // Bordo Poniente
     const CameraPosition(
@@ -120,24 +156,32 @@ class _MapViewPageState extends State<MapViewPage> {
               fillColor: InitializedCoordinates.init[i].fillColor,
               onTap: () {
                 showModalBottomSheet(
-                    context: context,
-                    builder: (_) => Container(
-                          decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0))),
-                        ));
+                    context: context, builder: (_) => InfoSheet());
               },
             ),
+        },
+        markers: {
+          for (int i = 0; i < InitializedCoordinates.init.length; i++)
+            Marker(
+                icon: icon,
+                markerId: MarkerId(InitializedCoordinates.init[i].id),
+                consumeTapEvents: true,
+                onTap: () {
+                  showModalBottomSheet(
+                      context: context, builder: (_) => InfoSheet());
+                },
+                position: LatLng(
+                    InitializedCoordinates.init[i].initialPosition.lat,
+                    InitializedCoordinates.init[i].initialPosition.lng))
         },
         initialCameraPosition: positions[0],
         myLocationButtonEnabled: false,
         mapType: MapType.terrain,
       ),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: "next",
         onPressed: nextPosition,
-        label: const Text('Siguiente'),
+        label: const Text('Next Location'),
         icon: const Icon(Icons.directions_boat),
       ),
     );
