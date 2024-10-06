@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:nasa_challenge/domain/models/coordinates.dart';
 
 class InitializedCoordinates {
+  static String tulaMainIssue =
+      """The Tula river (that crosses this area) has been significantly contaminated by industrial waste, domestic sewage, and agricultural runoff, leading to serious ecological and health impacts. This pollution not only affects water quality but also poses risks to local biodiversity and community health​.
+
+Additionally, the Tula power plant, contributes to air pollution in the region, impacting air quality significantly. The emissions from this plant are among the highest in the country, causing various health problems for residents​.
+
+These issues highlight the urgent need for improved environmental management and pollution control in the Tula region.""";
   static List<Coordinates> init = [
     Coordinates(
         id: "Pachuca",
@@ -9,12 +15,12 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(98, 76, 175, 79),
         strokeColor: Colors.green,
         greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
+          // GreenhouseDetail(
+          //     description: "2000 ppm of Methane",
+          //     color: const Color.fromRGBO(105, 184, 108, 1))
         ],
         summary:
-            "Pachuca, the capital of the state of Hidalgo in central Mexico, is located about 90 kilometers northeast of Mexico City. It sits at an elevation of approximately 2,400 meters (7,874 feet) above sea level. The city is historically known for its mining industry, particularly silver extraction, which played a major role in its economic development.",
+            "Pachuca, the capital of the state of Hidalgo in central Mexico, it is located about 90 kilometers northeast of Mexico City. It sits at an elevation of approximately 2,400 meters (7,874 feet) above sea level. The city is historically known for its mining industry, particularly silver extraction, which played a major role in its economic development.",
         mainIssue:
             "Pachuca is of interest for mapping as the capital of the state of Hidalgo, where important universities, schools, and hospitals are located. Due to the effects of the mining industry, greenhouse gases are emitted.",
         urls: [
@@ -97,17 +103,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(97, 175, 107, 76),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tepeji del Río de Ocampo is a municipality located in the state of Hidalgo, Mexico. It lies approximately 50 kilometers northeast of Mexico City and is situated at an elevation of about 2,200 meters (7,200 feet) above sea level. Founded in the 16th century, Tepeji is known for its agricultural activities, particularly the cultivation of corn, beans, and vegetables. The municipality also has a rich cultural heritage, with various traditional festivals and historical sites, making it a significant area within Hidalgo.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 19.77178813, lng: -99.38275701),
@@ -190,19 +194,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(98, 76, 175, 79),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
+        greenhouseDetails: [],
         summary:
-            "Pachuca, the capital of the state of Hidalgo in central Mexico, is located about 90 kilometers northeast of Mexico City. It sits at an elevation of approximately 2,400 meters (7,874 feet) above sea level. The city is historically known for its mining industry, particularly silver extraction, which played a major role in its economic development.",
-        mainIssue:
-            "Pachuca is of interest for mapping as the capital of the state of Hidalgo, where important universities, schools, and hospitals are located. Due to the effects of the mining industry, greenhouse gases are emitted.",
+            "Atitalaquia is a municipality in Hidalgo, Mexico, located in the Mezquital Valley. It spans about 64.2 km² and has a population of around 26,904. Known for its cultural heritage, Atitalaquia features the Parroquia de San Miguel Arcángel, a notable 16th-century church. Recent initiatives have focused on promoting tourism through its traditional cuisine and historical sites, aiming for sustainable development and community engagement.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.03568100, lng: -99.14859636),
@@ -248,17 +248,17 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(97, 76, 144, 175),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            """Atotonilco de Tula is a municipality in the state of Hidalgo, Mexico, known for its rich cultural heritage and historical significance. The area features a mix of temperate and semi-arid climates, with an annual temperature averaging around 17°C. It has a population of over 62,000, primarily engaged in agriculture and local trade, leveraging the fertile lands in the region.
+
+            The municipality is also home to notable landmarks, including the archaeological site of Tula and the San José Cathedral, reflecting its historical importance. Atotonilco de Tula benefits from its proximity to natural resources, particularly in agriculture and tourism, which contributes to its economic activities.""",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 19.87548932, lng: -99.23589427),
@@ -315,17 +315,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(98, 76, 175, 79),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromARGB(255, 184, 183, 105))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tepetitlán is a municipality in Hidalgo, Mexico, covering about 180 square kilometers with a population of approximately 10,830 as of 2020. The local economy is primarily driven by agriculture and livestock. The municipality is known for its cultural heritage and community festivals that celebrate local traditions.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.13772870, lng: -99.34049992),
@@ -379,17 +377,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(97, 76, 175, 167),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tezontepec de Aldama is a municipality located in the state of Hidalgo, Mexico. With an estimated population of around 29,881 in 2024, the municipality has experienced steady growth in recent years. It encompasses several localities, including its main town, Tezontepec de Aldama. The region's economy is primarily based on agriculture, and it features rich cultural traditions. The area is also noted for its beautiful natural surroundings.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.09382941, lng: -99.29102064),
@@ -454,17 +450,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(97, 175, 76, 150),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tlahuelilpan, a municipality in Hidalgo, Mexico, spans about 31.3 square kilometers and has a population of around 17,153. Known for its agricultural production, particularly maize and beans, it gained notoriety after a tragic pipeline explosion in January 2019. In 2024, Tlahuelilpan will become a 'Pueblo Mágico' a designation aimed at promoting tourism and economic development.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.10355845, lng: -99.27519139),
@@ -519,17 +513,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(97, 76, 102, 175),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tlaxcopan is a municipality in the state of Hidalgo, Mexico. It has a diverse agricultural economy, focusing on the cultivation of corn, beans, and vegetables. The region is also characterized by its rich cultural heritage and archaeological sites. The population is approximately 26,758, and the municipality covers an area of 79.3 km².",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.09639512, lng: -99.17860786),
@@ -582,17 +574,15 @@ class InitializedCoordinates {
         fillColor: const Color.fromARGB(173, 175, 173, 76),
         strokeColor: Colors.green,
         initialPosition: Position(lat: 20.415986, lng: -99.229184),
-        greenhouseDetails: [
-          GreenhouseDetail(
-              description: "2000 ppm of Methane",
-              color: const Color.fromRGBO(105, 184, 108, 1))
-        ],
-        summary: "...",
-        mainIssue: "...",
+        greenhouseDetails: [],
+        summary:
+            "Tula de Allende, located in the state of Hidalgo, Mexico, is notable for its rich cultural heritage and historical significance, particularly linked to the ancient Toltec civilization. The municipality features vital industries such as agriculture and manufacturing, contributing to its economic development. Additionally, Tula de Allende is known for its archaeological sites, including the Tula ruins, which attract visitors and researchers alike.",
+        mainIssue: tulaMainIssue,
         urls: [
-          "https://editorialrestauro.com.mx/wp-content/uploads/2020/01/Tabla-01-op-05-1024x684.png",
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WW0M6czsnst6oTWh1OOWA7YH8jOvCs5ekA&s",
-          "https://www.am.com.mx/u/fotografias/m/2023/4/19/f1280x720-481064_612739_5050.jpg"
+          "https://mexiconewsdaily.com/wp-content/uploads/2020/08/tula-1-696x432.jpg",
+          "https://www.excelsior.com.mx/media/inside-the-note/pictures/2022/06/15/tula-corredor.jpg",
+          "https://gpjs3bucket.s3.amazonaws.com/wp-content/uploads/2023/10/30045045/04_GPJNews_Mexico_ASI_TulaPollution3_024_web.jpg",
+          'https://www.portalambiental.com.mx/sites/default/files/media/image/2019/04/contaminacion_del_aire_2.jpg'
         ],
         positions: [
           Position(lat: 20.01344151, lng: -99.44025485),

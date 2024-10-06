@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nasa_challenge/domain/models/arobjects.dart';
 import 'package:nasa_challenge/presentation/pages/ar_views/ar_screen_view.dart';
@@ -24,6 +23,7 @@ class _MapViewPageState extends State<MapViewPage> {
   late String _darkMapStyle = '';
 
   BitmapDescriptor icon = BitmapDescriptor.defaultMarker;
+  BitmapDescriptor notYetBuiltIcon = BitmapDescriptor.defaultMarker;
 
   Future _loadMapStyles() async {
     _darkMapStyle = await rootBundle.loadString('assets/map/map_style.txt');
@@ -46,11 +46,30 @@ class _MapViewPageState extends State<MapViewPage> {
     ).toBitmapDescriptor();
   }
 
+  Future<BitmapDescriptor> getCustomIconNoyYetBuilt() async {
+    return SizedBox(
+      height: 50,
+      width: 200,
+      child: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text(
+          'Not built yet. Soon... ',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        heroTag: (Random().nextDouble() * 256).toString(),
+        backgroundColor: const Color.fromARGB(255, 255, 247, 155),
+        icon: const Icon(Icons.warning, color: Colors.black),
+      ),
+    ).toBitmapDescriptor();
+  }
+
   toNonAsync() async {
     icon = await getCustomIcon();
+    notYetBuiltIcon = await getCustomIconNoyYetBuilt();
 
     setState(() {
       icon = icon;
+      notYetBuiltIcon = notYetBuiltIcon;
     });
   }
 
@@ -178,6 +197,10 @@ class _MapViewPageState extends State<MapViewPage> {
             ),
         },
         markers: {
+          Marker(
+              icon: notYetBuiltIcon,
+              markerId: const MarkerId("notYet"),
+              position: const LatLng(19.440076, -99.025026)),
           for (int i = 0; i < InitializedCoordinates.init.length; i++)
             Marker(
                 icon: icon,
