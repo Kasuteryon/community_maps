@@ -34,7 +34,7 @@ class _MapViewPageState extends State<MapViewPage> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         heroTag: (Random().nextDouble() * 256).toString(),
-        backgroundColor: const Color.fromARGB(255, 255, 142, 142),
+        backgroundColor: const Color(0xff002960),
         icon: const Icon(Icons.zoom_out_map, color: Colors.white),
       ),
     ).toBitmapDescriptor();
@@ -121,14 +121,14 @@ class _MapViewPageState extends State<MapViewPage> {
           padding: const EdgeInsets.only(right: 2),
           alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 10),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          decoration: const BoxDecoration(
+              color: Color(0xff002960), shape: BoxShape.circle),
           child: IconButton(
               color: Colors.white,
               onPressed: () => Navigator.pop(context),
               icon: const Icon(
                 Icons.arrow_back_ios_new,
-                color: Colors.black,
+                color: Colors.white,
               )),
         ),
         title: Container(
@@ -136,8 +136,12 @@ class _MapViewPageState extends State<MapViewPage> {
             alignment: Alignment.center,
             margin: const EdgeInsets.only(left: 20, right: 30),
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(10)),
-            child: Text(title)),
+                color: const Color(0xff002960),
+                borderRadius: BorderRadius.circular(20)),
+            child: Text(
+              title,
+              style: const TextStyle(color: Colors.white),
+            )),
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,

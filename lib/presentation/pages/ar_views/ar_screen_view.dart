@@ -30,7 +30,11 @@ class _ARObjectsScreenState extends State<ARObjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: const Color(0xffffffff),
+        elevation: 0.0,
+        scrolledUnderElevation: 0.0,
+      ),
       body: ARView(onARViewCreated: onARViewCreated),
       floatingActionButton: FloatingActionButton(
         onPressed: widget.isLocal

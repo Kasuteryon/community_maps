@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nasa_challenge/presentation/pages/ar_views/ar_home.dart';
+import 'package:nasa_challenge/presentation/pages/home/about.dart';
 import 'package:nasa_challenge/presentation/pages/map_views/map_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,57 +25,85 @@ class HomePage extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Stack(
+                  alignment: const Alignment(0.7, 0.80),
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const MapViewPage()));
+                      },
+                      child: Container(
+                          margin: const EdgeInsets.only(
+                              right: 30, left: 30, top: 40, bottom: 10),
+                          alignment: Alignment.center,
+                          height: 300,
+                          width: 400,
+                          decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                  colorFilter: ColorFilter.mode(
+                                      Color.fromARGB(32, 0, 0, 0),
+                                      BlendMode.darken),
+                                  image: AssetImage("assets/logo/2d_map.png"),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: const Text(
+                            "Enter Map Viewer",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          )),
+                    ),
+                    FloatingActionButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const MapViewPage()));
+                      },
+                      backgroundColor: const Color.fromARGB(255, 255, 131, 122),
+                      child: const Icon(
+                        Icons.play_arrow_rounded,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
                 Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 40),
-                    height: 200,
+                        horizontal: 30, vertical: 30),
+                    height: 60,
                     width: 400,
                     decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            colorFilter: ColorFilter.mode(
-                                Color.fromARGB(32, 0, 0, 0), BlendMode.darken),
-                            image: AssetImage("assets/logo/2d_map.png"),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color(0xffDAE1FD),
+                    ),
                     child: TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const MapViewPage()));
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (_) => const AboutPage());
                         },
-                        child: const Text(
-                          "2D Map View",
-                          style: TextStyle(color: Colors.white, fontSize: 40),
-                        ))),
-                Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-                    height: 200,
-                    width: 400,
-                    decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            image: AssetImage("assets/logo/ar_map.jpg"),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => const ARHome()));
-                        },
-                        child: const Text(
-                          "AR Map View",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 40),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "About this Project",
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
+                            ),
+                            Icon(
+                              Icons.info,
+                            )
+                          ],
                         ))),
               ],
-            ),
-            Container(
-                margin: const EdgeInsets.only(bottom: 50),
-                height: 160,
-                child: Image.asset("assets/logo/footer.png")),
+            )
           ],
         ),
       ),
