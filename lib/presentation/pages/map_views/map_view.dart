@@ -76,7 +76,7 @@ class _MapViewPageState extends State<MapViewPage> {
     // Tula
     const CameraPosition(
       target: LatLng(20.415986, -99.229184),
-      zoom: 11,
+      zoom: 9,
     )
   ];
 
@@ -182,8 +182,8 @@ class _MapViewPageState extends State<MapViewPage> {
                           coordinates: InitializedCoordinates.init[i]));
                 },
                 position: LatLng(
-                    InitializedCoordinates.init[i].initialPosition.lat,
-                    InitializedCoordinates.init[i].initialPosition.lng))
+                    InitializedCoordinates.init[i].positions[0].lat,
+                    InitializedCoordinates.init[i].positions[0].lng))
         },
         initialCameraPosition: positions[0],
         myLocationButtonEnabled: false,
