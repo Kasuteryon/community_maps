@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nasa_challenge/domain/models/arobjects.dart';
 import 'package:nasa_challenge/presentation/pages/ar_views/ar_screen_view.dart';
@@ -20,22 +20,27 @@ class MapViewPage extends StatefulWidget {
 class _MapViewPageState extends State<MapViewPage> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
+  late String _darkMapStyle = '';
 
   BitmapDescriptor icon = BitmapDescriptor.defaultMarker;
+
+  Future _loadMapStyles() async {
+    _darkMapStyle = await rootBundle.loadString('assets/map/map_style.txt');
+  }
 
   Future<BitmapDescriptor> getCustomIcon() async {
     return SizedBox(
       height: 50,
-      width: 130,
+      width: 80,
       child: FloatingActionButton.extended(
         onPressed: () {},
         label: const Text(
-          'See More',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          'More',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         heroTag: (Random().nextDouble() * 256).toString(),
-        backgroundColor: const Color(0xff002960),
-        icon: const Icon(Icons.zoom_out_map, color: Colors.white),
+        backgroundColor: const Color(0xffDAE1FD),
+        icon: const Icon(Icons.zoom_out_map, color: Colors.black),
       ),
     ).toBitmapDescriptor();
   }
@@ -53,16 +58,22 @@ class _MapViewPageState extends State<MapViewPage> {
   @override
   void initState() {
     toNonAsync();
+    _loadMapStyles();
     super.initState();
   }
 
-  String title = "Pachuca de Soto";
+  String title = "Tula";
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
   List<CameraPosition> positions = [
+    // Tula
+    const CameraPosition(
+      target: LatLng(19.996013, -99.328298),
+      zoom: 10.5,
+    ),
     // Pachuca
     const CameraPosition(
       target: LatLng(20.084683, -98.749287),
@@ -72,11 +83,6 @@ class _MapViewPageState extends State<MapViewPage> {
     const CameraPosition(
       target: LatLng(19.440076, -99.025026),
       zoom: 13.5,
-    ),
-    // Tula
-    const CameraPosition(
-      target: LatLng(20.415986, -99.229184),
-      zoom: 9,
     )
   ];
 
@@ -91,16 +97,16 @@ class _MapViewPageState extends State<MapViewPage> {
       setState(() {
         switch (pos) {
           case 0:
-            title = "Pachuca de Soto";
-            break;
-          case 1:
-            title = "Bordo Poniente";
-            break;
-          case 2:
             title = "Tula";
             break;
-          default:
+          case 1:
             title = "Pachuca de Soto";
+            break;
+          case 2:
+            title = "Bordo Poniente";
+            break;
+          default:
+            title = "Tula";
             break;
         }
 
@@ -122,13 +128,13 @@ class _MapViewPageState extends State<MapViewPage> {
           alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 10),
           decoration: const BoxDecoration(
-              color: Color(0xff002960), shape: BoxShape.circle),
+              color: Color(0xffDAE1FD), shape: BoxShape.circle),
           child: IconButton(
               color: Colors.white,
               onPressed: () => Navigator.pop(context),
               icon: const Icon(
                 Icons.arrow_back_ios_new,
-                color: Colors.white,
+                color: Colors.black,
               )),
         ),
         title: Container(
@@ -136,15 +142,16 @@ class _MapViewPageState extends State<MapViewPage> {
             alignment: Alignment.center,
             margin: const EdgeInsets.only(left: 20, right: 30),
             decoration: BoxDecoration(
-                color: const Color(0xff002960),
+                color: const Color(0xffDAE1FD),
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
               title,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.black),
             )),
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
+        style: _darkMapStyle,
         polygons: {
           for (int i = 0; i < InitializedCoordinates.init.length; i++)
             Polygon(
@@ -187,7 +194,7 @@ class _MapViewPageState extends State<MapViewPage> {
         },
         initialCameraPosition: positions[0],
         myLocationButtonEnabled: false,
-        mapType: MapType.terrain,
+        mapType: MapType.normal,
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
