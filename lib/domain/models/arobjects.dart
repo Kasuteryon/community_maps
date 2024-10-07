@@ -11,4 +11,8 @@ class ARObjects {
   static const String chicken = "assets/Chicken_01/Chicken_01.gltf";
 
   static const String grandcanyon = "assets/grand_canyon/scene.gltf";
+
+  static const String test1 = "assets/models/pachuca_model.glb";
+
+  static const String test2 = "assets/models/tula_model.glb";
 }

@@ -360,8 +360,10 @@ class _MapViewPageState extends State<MapViewPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ARObjectsScreen(
-                                object: ARObjects.chicken,
+                          builder: (context) => ARObjectsScreen(
+                                object: title == "Tula"
+                                    ? ARObjects.test2
+                                    : ARObjects.test1,
                                 isLocal: true,
                               )));
                 },
