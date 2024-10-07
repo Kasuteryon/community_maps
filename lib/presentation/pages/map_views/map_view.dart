@@ -253,11 +253,14 @@ class _MapViewPageState extends State<MapViewPage> {
                         Stack(
                           alignment: const Alignment(0.9, 1.5),
                           children: [
-                            Image.asset("assets/map/tula_temp.png"),
+                            Image.asset(title == "Tula"
+                                ? "assets/map/tula_temp.png"
+                                : "assets/map/pachuca_temp.png"),
                             SizedBox(
                                 height: 120,
-                                child:
-                                    Image.asset("assets/map/tula_scale.png")),
+                                child: Image.asset(title == "Tula"
+                                    ? "assets/map/tula_scale.png"
+                                    : "assets/map/pachuca_scale.png")),
                           ],
                         ),
                       ],
@@ -301,7 +304,7 @@ class _MapViewPageState extends State<MapViewPage> {
                 child: Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(left: 40),
-                  height: 90,
+                  height: 60,
                   width: 180,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
