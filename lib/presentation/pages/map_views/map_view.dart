@@ -275,6 +275,70 @@ class _MapViewPageState extends State<MapViewPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: const DecorationImage(
+                          image: AssetImage("assets/map/gasmap.jpg"),
+                          fit: BoxFit.cover),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromARGB(69, 0, 0, 0),
+                            offset: Offset(0.1, 0.1),
+                            blurRadius: 10,
+                            spreadRadius: 0.5)
+                      ]),
+                  child: const Text("View Gas Map",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (_) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(right: 2),
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.only(left: 10),
+                          decoration: const BoxDecoration(
+                              color: Color(0xffDAE1FD), shape: BoxShape.circle),
+                          child: IconButton(
+                              color: Colors.white,
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(
+                                Icons.arrow_back_ios_new,
+                                color: Colors.black,
+                              )),
+                        ),
+                        Stack(
+                          alignment: const Alignment(0.9, 1.5),
+                          children: [
+                            Image.asset(title == "Tula"
+                                ? "assets/map/tula_temp.png"
+                                : "assets/map/pachuca_temp.png"),
+                            SizedBox(
+                                height: 120,
+                                child: Image.asset(title == "Tula"
+                                    ? "assets/map/tula_scale.png"
+                                    : "assets/map/pachuca_scale.png")),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(left: 40, bottom: 10),
+                  height: 60,
+                  width: 180,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: const DecorationImage(
                           image: AssetImage("assets/map/heatmap.webp"),
                           fit: BoxFit.cover),
                       boxShadow: const [
