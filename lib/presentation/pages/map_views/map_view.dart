@@ -254,13 +254,13 @@ class _MapViewPageState extends State<MapViewPage> {
                           alignment: const Alignment(0.9, 1.5),
                           children: [
                             Image.asset(title == "Tula"
-                                ? "assets/map/tula_temp.png"
-                                : "assets/map/pachuca_temp.png"),
+                                ? "assets/map/tula_gas.png"
+                                : "assets/map/pachuca_gas.png"),
                             SizedBox(
                                 height: 120,
                                 child: Image.asset(title == "Tula"
-                                    ? "assets/map/tula_scale.png"
-                                    : "assets/map/pachuca_scale.png")),
+                                    ? "assets/map/tula_gas_scale.png"
+                                    : "assets/map/pachuca_gas_scale.png")),
                           ],
                         ),
                       ],
