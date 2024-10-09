@@ -71,7 +71,7 @@ class _ARObjectsScreenState extends State<ARObjectsScreen> {
       var newNode = ARNode(
           type: NodeType.localGLTF2,
           uri: widget.object,
-          //scale: Vector3(0.2, 0.2, 0.2),
+          scale: Vector3(100.0, 100.0, 100.0),
           position: Vector3(0.0, 0.0, 0.0),
           rotation: Vector4(1.0, 0.0, 0.0, 0.0));
       bool? didAddLocalNode = await arObjectManager.addNode(newNode);
